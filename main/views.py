@@ -4,7 +4,8 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def index(response):
-    return HttpResponse('<h1>Teach  me code</h1>')
+def index(response, id):
+    ls = ToDoList.objects.get(id=id)
+    return HttpResponse('<h1>%s</h1>' % ls.name)
 
 
